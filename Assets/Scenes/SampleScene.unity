@@ -123,6 +123,23 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &47017257 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6219904957759825882, guid: 9697e9c37f090b54da373fd8c4acd4b1, type: 3}
+  m_PrefabInstance: {fileID: 7692923136879290479}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &47017260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47017257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78743a8fd79721c47877d9929dc083db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &51701195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,7 +1065,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5962527543472693572, guid: ca9ff76a84a698a47a78f143355c6ddd, type: 3}
       propertyPath: speedModifier
-      value: 0.1
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962527543472693572, guid: ca9ff76a84a698a47a78f143355c6ddd, type: 3}
+      propertyPath: durationOfSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5962527543472693572, guid: ca9ff76a84a698a47a78f143355c6ddd, type: 3}
       propertyPath: whatIsGround.m_Bits

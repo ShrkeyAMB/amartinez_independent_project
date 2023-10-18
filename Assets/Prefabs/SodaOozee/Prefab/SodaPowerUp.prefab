@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8082453271742143243}
   - component: {fileID: 4402216709498883227}
   - component: {fileID: 2448630266296117553}
+  - component: {fileID: 1488742653261468583}
   m_Layer: 0
   m_Name: SodaPowerUp
   m_TagString: SpeedPowerUp
@@ -4912,6 +4913,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.32
   m_Center: {x: 0, y: -0.01, z: -0.00000004470348}
+--- !u!114 &1488742653261468583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3066830371576470103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea19faa4c3760c142a3887181b01bba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6269672695442612878
 GameObject:
   m_ObjectHideFlags: 0

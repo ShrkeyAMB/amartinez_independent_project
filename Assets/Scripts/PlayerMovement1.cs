@@ -136,6 +136,17 @@ public class PlayerMovement1 : MonoBehaviour
         if(durationOfSpeed <= 0)
         {
             pickUpSpeed = false;
+            moveSpeed = 7f;
+            durationOfSpeed = 5f;
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("SpeedPowerUp"))
+        {
+            pickUpSpeed = true;
+            Debug.Log("Im Speed");
         }
     }
 }
