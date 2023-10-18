@@ -6,6 +6,9 @@ public class PlayerMovement1 : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
+    public bool pickUpSpeed = false;
+    public float speedModifier = 7f;
+    public float durationOfSpeed = 10f;
 
     public float groundDrag;
 
@@ -49,6 +52,7 @@ public class PlayerMovement1 : MonoBehaviour
 
         MyInput();
         SpeedControl();
+        SpeedUp();
 
         //drag handler
         if (grounded)
@@ -62,6 +66,9 @@ public class PlayerMovement1 : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        
+
+
     }
     private void MyInput()
     {
@@ -117,5 +124,18 @@ public class PlayerMovement1 : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    }
+
+    private void SpeedUp()
+    {
+        if(pickUpSpeed == true)
+        {
+            moveSpeed += speedModifier;
+            durationOfSpeed -= Time.deltaTime;
+        }
+        if(durationOfSpeed <= 0)
+        {
+            pickUpSpeed = false;
+        }
     }
 }
