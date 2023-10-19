@@ -34,6 +34,8 @@ public class PlayerMovement1 : MonoBehaviour
 
     Rigidbody rb;
 
+    public bool gameOver = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +62,11 @@ public class PlayerMovement1 : MonoBehaviour
         else
             rb.drag = 0;
            
-            
+            //loose Game
+            if(gameOver == true)
+        {
+            moveSpeed=0;
+        }
         
     }
     private void FixedUpdate()

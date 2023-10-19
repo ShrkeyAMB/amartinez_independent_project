@@ -11,12 +11,14 @@ public class SpawnManager : MonoBehaviour
     public float timeToSpawn = 0;
     private int spawnedObjects;
     public float countDown = 5f;
-    
 
+    
+    private PlayerMovement1 playerControl;
 
     private void Start()
     {
-        
+
+        playerControl = GameObject.Find("Player").GetComponent<PlayerMovement1>();
 
         Invoke("SpawnPowerUps", 2 );
         spawnedObjects = 2;
@@ -28,6 +30,12 @@ public class SpawnManager : MonoBehaviour
     private void Update()
     {
         Invoke("Spawning", 0);
+
+        if(playerControl.gameOver == true)
+        {
+            CancelInvoke("Spawning");
+            Debug.Log("Spawning Has Stopped");
+        }
     }
 
     void Spawning()
