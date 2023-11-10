@@ -8,7 +8,7 @@ public class PlayerMovement1 : MonoBehaviour
     public float moveSpeed;
     public bool pickUpSpeed = false;
     public float speedModifier = 7f;
-    public float durationOfSpeed = 10f;
+   
 
     public float groundDrag;
 
@@ -137,22 +137,24 @@ public class PlayerMovement1 : MonoBehaviour
         if(pickUpSpeed == true)
         {
             moveSpeed += speedModifier;
-            durationOfSpeed -= Time.deltaTime;
+            
         }
-        if(durationOfSpeed <= 0)
-        {
-            pickUpSpeed = false;
-            moveSpeed = 7f;
-            durationOfSpeed = 5f;
-        }
+        
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("SpeedPowerUp"))
         {
             pickUpSpeed = true;
+            StartCoroutine(PowerUpCountDowns());
             Debug.Log("Im Speed");
         }
+    }
+    IEnumerator PowerUpCountDowns()
+    {
+        yield return new WaitForSeconds(10);
+        pickUpSpeed = false;
+        moveSpeed = 7f;
     }
 }

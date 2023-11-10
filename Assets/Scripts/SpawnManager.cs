@@ -10,6 +10,7 @@ public class SpawnManager : MonoBehaviour
 
     public float timeToSpawn = 0;
     private int spawnedObjects;
+    private int spawnedPowerUpsCount;
     public float countDown = 5f;
 
     
@@ -20,42 +21,38 @@ public class SpawnManager : MonoBehaviour
 
         playerControl = GameObject.Find("Player").GetComponent<PlayerMovement1>();
 
-        Invoke("SpawnPowerUps", 2 );
-        spawnedObjects = 2;
-        
-        
-        
+        SpawnPowerUps(1);
+
+
+
+
+
     }
 
     private void Update()
     {
-        Invoke("Spawning", 0);
+        spawnedPowerUpsCount = FindObjectsOfType<SodaPickup>().Length;
 
-        if(playerControl.gameOver == true)
+        if (spawnedPowerUpsCount == 0)
         {
-            CancelInvoke("Spawning");
+            SpawnPowerUps(1);
+        }
+
+        if (playerControl.gameOver == true)
+        {
+            
             Debug.Log("Spawning Has Stopped");
         }
     }
 
-    void Spawning()
-    {
-        countDown -= Time.deltaTime;
-        if (countDown <= 0)
-        {
-            spawnedObjects = 0;
-        }
-        if (spawnedObjects == 0)
-        {
-            Invoke("SpawnPowerUps", 2);
-            spawnedObjects = 2;
-            countDown = 5f;
-        }
-    }
+    
 
-    void SpawnPowerUps()
+    void SpawnPowerUps(int powerUpSpeedCount)
     {
-        powerUpClones[0] = Instantiate(powerUpPrefabs[0], powerUpSpawnLocations[0].transform.position,Quaternion.Euler(0,0,0)) as GameObject;
-        powerUpClones[1] = Instantiate(powerUpPrefabs[1], powerUpSpawnLocations[1].transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
+        for (int i = 0; i < powerUpSpeedCount; i++)
+        {
+            powerUpClones[0] = Instantiate(powerUpPrefabs[0], powerUpSpawnLocations[0].transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
+            powerUpClones[1] = Instantiate(powerUpPrefabs[1], powerUpSpawnLocations[1].transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
+        }
     }
 }
