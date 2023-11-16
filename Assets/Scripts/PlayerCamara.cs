@@ -10,6 +10,7 @@ public class PlayerCamara : MonoBehaviour
     public float sensY;
 
     public Transform orientation;
+    private PlayerMovement1 playerControl;
 
     float xRotation;
     float yRotation;
@@ -17,6 +18,8 @@ public class PlayerCamara : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerControl = GameObject.Find("Player").GetComponent<PlayerMovement1>();
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -37,5 +40,8 @@ public class PlayerCamara : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+
+        //if(playerControl.gameOver == true)
+        
     }
 }

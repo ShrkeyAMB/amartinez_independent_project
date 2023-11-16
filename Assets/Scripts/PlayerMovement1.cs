@@ -66,6 +66,7 @@ public class PlayerMovement1 : MonoBehaviour
             if(gameOver == true)
         {
             moveSpeed=0;
+            readyToJump = false;
         }
         
     }
@@ -136,7 +137,7 @@ public class PlayerMovement1 : MonoBehaviour
     {
         if(pickUpSpeed == true)
         {
-            moveSpeed += speedModifier;
+            moveSpeed = speedModifier;
             
         }
         
