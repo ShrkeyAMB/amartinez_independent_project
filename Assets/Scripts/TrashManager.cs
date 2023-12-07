@@ -11,10 +11,12 @@ public class TrashManager : MonoBehaviour
     public float DelayInBetween = 15f;
     public float initialCount = 15f;
     public int waveNumber = 1;
+    public bool spawningTrash = false;
 
     // Start is called before the first frame update
     void Start()
     {
+
         SpawnTrash(1);
     }
 
@@ -22,7 +24,7 @@ public class TrashManager : MonoBehaviour
     void Update()
     {
         CurrentTrashCount = FindObjectsOfType<TrashBagScript>().Length;
-        if(CurrentTrashCount == 0)
+        if(spawningTrash == true)
         {
             DelayInBetween -= Time.deltaTime;
             Debug.Log(DelayInBetween - Time.deltaTime);

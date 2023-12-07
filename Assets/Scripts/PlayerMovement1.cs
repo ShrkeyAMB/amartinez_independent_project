@@ -36,6 +36,9 @@ public class PlayerMovement1 : MonoBehaviour
 
     public bool gameOver = false;
 
+    //TrashSystem
+    public int PickedUpTrash = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -150,6 +153,11 @@ public class PlayerMovement1 : MonoBehaviour
             pickUpSpeed = true;
             StartCoroutine(PowerUpCountDowns());
             Debug.Log("Im Speed");
+        }
+
+        if (other.gameObject.CompareTag("TrashBag"))
+        {
+            PickedUpTrash++;
         }
     }
     IEnumerator PowerUpCountDowns()
